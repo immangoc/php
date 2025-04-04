@@ -11,7 +11,7 @@ if (!isset($_SESSION['user']) || !$user->isAdmin($_SESSION['user'])) {
 }
 
 // Số lượng người dùng trên mỗi trang
-$users_per_page = 10;
+$users_per_page = 5;
 
 // Lấy trang hiện tại từ URL (nếu không có trang mặc định là 1)
 $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;

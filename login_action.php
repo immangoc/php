@@ -9,9 +9,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $password = $_POST['password'];
 
     // Kiểm tra đăng nhập
-    $loggedInUser   = $user->login($username, $password);
-    if ($loggedInUser ) {
-        $_SESSION['user'] = $loggedInUser ;
+    $loggedInUser = $user->login($username, $password);
+    if ($loggedInUser) {
+        $_SESSION['user'] = $loggedInUser;
 
         // Nếu người dùng chọn "Nhớ mật khẩu"
         if (isset($_POST['remember'])) {
@@ -31,3 +31,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 ?>
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập</title>
+</head>
+<body>
+    <h2>Đăng nhập</h2>
+    <?php
+    // Hiển thị thông báo lỗi nếu có
+    if (isset($error_message)) {
+        echo "<p style='color: red;'>$error_message</p>";
+        header('Location: login.php?error=' . urlencode($error_message));
+    }
+    ?>
+</body>
+</html>

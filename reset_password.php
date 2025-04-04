@@ -15,12 +15,12 @@ if (isset($_GET['token'])) {
     <title>Đặt Lại Mật Khẩu</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="reset_password.css"> 
+    <link rel="stylesheet" href="style.css"> 
 </head>
 <body>
 
 <div class="reset-password-container">
-    <h3 class="text-center mb-4">🔒 Đặt Lại Mật Khẩu</h3>
+    <h3 class="text-center mb-4">Đặt Lại Mật Khẩu</h3>
 
     <form method="POST" action="reset_password_action.php?token=<?php echo htmlspecialchars($token); ?>">
         <div class="form-group">

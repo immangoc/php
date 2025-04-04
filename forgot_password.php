@@ -12,7 +12,6 @@
 
 <div class="forgot-password-container">
     <h3 class="text-center mb-4">Quên Mật Khẩu</h3>
-
     <form method="POST" action="forgot_password_action.php">
         <div class="form-group">
             <label for="email">Nhập Email Đăng Ký</label>
