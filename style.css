@@ -1,0 +1,129 @@
+body {
+  background-color: #f1f3f5;
+}
+
+.register-container {
+  max-width: 500px;
+  margin: auto;
+  margin-top: 10vh;
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.register-container h3 {
+  color: #28a745;
+}
+
+.form-control {
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.btn-block {
+  min-width: 100%;
+  border-radius: 8px;
+  padding: 12px;
+}
+
+.alert {
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+
+.text-center a {
+  text-decoration: none;
+}
+
+.text-center a:hover {
+  text-decoration: underline;
+}
+
+.login-container {
+  max-width: 400px;
+  margin: auto;
+  margin-top: 10vh;
+  background: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+.dashboard-container {
+  max-width: 700px;
+  margin: auto;
+  margin-top: 8vh;
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.btn-custom {
+  min-width: 180px;
+}
+.reset-password-container {
+  max-width: 400px;
+  margin: auto;
+  margin-top: 10vh;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+}
+
+.reset-password-container h3 {
+  color: #28a745;
+}
+
+.btn-block {
+  min-width: 100%;
+}
+
+.forgot-password-container {
+  max-width: 400px;
+  margin: auto;
+  margin-top: 10vh;
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+}
+
+.forgot-password-container h3 {
+  color: #007bff;
+}
+
+.container {
+  margin-top: 30px;
+}
+
+h2 {
+  color: #007bff;
+  font-weight: bold;
+}
+
+.table {
+  background-color: #ffffff;
+  border-radius: 8px;
+}
+
+.table th,
+.table td {
+  text-align: center;
+}
+
+.pagination {
+  margin-top: 20px;
+}
+.pagination .page-item.active .page-link {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.pagination .page-link {
+  color: #007bff;
+}
+.pagination .page-link:hover {
+  color: #0056b3;
+}
