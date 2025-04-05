@@ -1,4 +1,6 @@
-<?php session_start(); ?>
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="vi">
 <head>
@@ -18,16 +20,21 @@
             <label for="email">Nhập Email Đăng Ký</label>
             <input type="email" class="form-control" id="email" name="email" placeholder="your@example.com" required>
         </div>
-        <div class="form-group">
-            <label for="otp">Nhập Mã OTP</label>
-            <input type="text" class="form-control" id="otp" name="otp" placeholder="Nhập 4 chữ số" maxlength="4" pattern="\d{4}" title="Mã OTP phải là 4 chữ số" >
-        </div>
         <button type="submit" name="OTPbtn" class="btn btn-primary btn-block">Gửi Liên Kết Đặt Lại</button>
     </form>
 
     <div class="text-center mt-3">
         <a href="login.php" class="text-secondary">← Quay lại đăng nhập</a>
     </div>
+
+    <!-- Hiển thị thông báo nếu có -->
+    <?php
+    if (isset($_SESSION['status'])) {
+        echo "<div class='alert alert-info'>" . $_SESSION['status'] . "</div>";
+        unset($_SESSION['status']); // Xóa thông báo sau khi hiển thị
+    }
+    ?>
+
 </div>
 
 <!-- Bootstrap JS -->
@@ -35,18 +42,6 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script>
-    var messagetext = "<?= $_SESSION['status'] ?? ''; ?>";
-    if (messagetext != "") {
-       Swal.fire({
-        title: "Please check your email",
-        text: messagetext,
-        icon: "success"
-        });
-        <?php unset($_SESSION['status']); ?>
-    }
-    
-</script>
 
 </body>
 </html>

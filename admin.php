@@ -41,12 +41,13 @@ $total_pages = ceil($total_users / $users_per_page);
     <link rel="stylesheet" href="style.css"> <!-- Link đến CSS riêng -->
 </head>
 <body>
+
 <div class="container">
-    <h2 class="mt-5">Quản Lý Người Dùng</h2>
+    <h2 class="text-center mb-4">Quản Lý Người Dùng</h2>
     
     <!-- Bảng người dùng -->
-    <table class="table table-bordered table-striped">
-        <thead>
+    <table class="table table-bordered table-hover">
+        <thead class="thead-dark">
             <tr>
                 <th>ID</th>
                 <th>Tên Đăng Nhập</th>
@@ -83,10 +84,8 @@ $total_pages = ceil($total_users / $users_per_page);
         </ul>
     </nav>
 
-    <a href="logout.php" class="btn btn-danger">Đăng Xuất</a>
+    <a href="index.php" class="btn btn-primary btn-logout">Trở lại</a>
 </div>
-
-<!-- Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
