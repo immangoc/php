@@ -16,6 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Nếu người dùng chọn "Nhớ mật khẩu"
         if (isset($_POST['remember'])) {
             // Thiết lập cookie cho username và password (mật khẩu nên được mã hóa)
+            date_default_timezone_set('Asia/Ho_Chi_Minh');
             setcookie('username', $username, time() + (86400 * 30), "/"); // Cookie tồn tại trong 30 ngày
             setcookie('password', $password, time() + (86400 * 30), "/"); // Cookie tồn tại trong 30 ngày
         } else {

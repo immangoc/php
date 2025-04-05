@@ -50,6 +50,16 @@ body {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
 }
 
+.dashboard-container {
+  max-width: 700px;
+  margin: auto;
+  margin-top: 8vh;
+  background: white;
+  padding: 40px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
 .btn-custom {
   min-width: 180px;
 }
