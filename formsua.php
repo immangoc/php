@@ -12,16 +12,12 @@ if (isset($_GET['id'])) {
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
 
     if (!$user) {
-        echo "Không tìm thấy người dùng.";
+        echo "<div class='alert alert-warning text-center mt-4'>Không tìm thấy người dùng.</div>";
         exit;
     }
 } else {
-    echo "ID người dùng không hợp lệ.";
+    echo "<div class='alert alert-warning text-center mt-4'>ID người dùng không hợp lệ.</div>";
     exit;
-}
-// Kiểm tra nếu có thông báo lỗi từ xlsua.php
-if (isset($_GET['error'])) {
-    echo '<div class="alert alert-danger">' . htmlspecialchars($_GET['error']) . '</div>';
 }
 ?>
 
@@ -30,23 +26,33 @@ if (isset($_GET['error'])) {
 <head>
     <meta charset="UTF-8">
     <title>Sửa Người Dùng</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap + CSS riêng -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css"> <!-- File CSS bạn đã có -->
 </head>
 <body>
 
-<div class="container">
-    <h2 class="text-center mb-4">Sửa Người Dùng</h2>
+<div class="register-container">
+    <h3 class="text-center mb-4 text-primary">Sửa Thông Tin Người Dùng</h3>
 
-    <!-- Form sửa thông tin người dùng -->
+    <?php if (isset($_GET['error'])): ?>
+        <div class="alert alert-danger text-center">
+            <?php echo htmlspecialchars($_GET['error']); ?>
+        </div>
+    <?php endif; ?>
+
     <form action="xlsua.php?id=<?php echo $user['id']; ?>" method="POST">
         <div class="form-group">
             <label for="username">Tên Đăng Nhập</label>
-            <input type="text" class="form-control" id="username" name="username" value="<?php echo htmlspecialchars($user['username']); ?>" required>
+            <input type="text" class="form-control" id="username" name="username"
+                   value="<?php echo htmlspecialchars($user['username']); ?>" required>
         </div>
 
         <div class="form-group">
             <label for="email">Email</label>
-            <input type="email" class="form-control" id="email" name="email" value="<?php echo htmlspecialchars($user['email']); ?>" required>
+            <input type="email" class="form-control" id="email" name="email"
+                   value="<?php echo htmlspecialchars($user['email']); ?>" required>
         </div>
 
         <div class="form-group">
@@ -57,12 +63,12 @@ if (isset($_GET['error'])) {
             </select>
         </div>
 
-        <button type="submit" class="btn btn-primary">Cập Nhật</button>
-        <a href="admin.php" class="btn btn-secondary">Hủy</a>
+        <div class="text-center mt-4">
+            <button type="submit" class="btn btn-primary btn-block">Cập Nhật</button>
+            <a href="admin.php" class="btn btn-secondary btn-block mt-2">Hủy Bỏ</a>
+        </div>
     </form>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

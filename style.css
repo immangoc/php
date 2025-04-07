@@ -122,3 +122,46 @@ h2 {
   float: left;
   margin-top: 20px;
 }
+.search-box {
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.table th,
+.table td {
+  vertical-align: middle;
+}
+
+.text-primary {
+  color: #007bff !important;
+}
+
+.alert-warning {
+  font-weight: 500;
+}
+
+body {
+  background-color: #f4f6f9;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.form-box {
+  max-width: 500px;
+  border-radius: 16px;
+}
+
+h3.text-primary {
+  font-weight: 600;
+}
+
+input::placeholder,
+select {
+  font-size: 14px;
+  color: #6c757d;
+}
+
+button.btn {
+  border-radius: 8px;
+}

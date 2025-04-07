@@ -102,7 +102,7 @@ unset($_SESSION['search_message']);
             <!-- <a href="formtimkiem.php" class="btn btn-success">Tìm Kiếm</a> -->
         </div>
         <div class="col-md-6 text-right">
-            <a href="index.php" class="btn btn-secondary">Trở lại</a>
+            <a href="index.php" class="btn btn-secondary">Quay lại</a>
             
         </div>
     </div>
