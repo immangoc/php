@@ -17,11 +17,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         // Nếu người dùng chọn "Nhớ mật khẩu"
         if (isset($_POST['remember'])) {
-            // Thiết lập cookie cho username, chỉ lưu username vì mật khẩu không nên lưu trong cookie
+            // Thiết lập cookie cho username
             setcookie('username', $username, time() + (86400 * 30), "/"); // Cookie tồn tại trong 30 ngày
+            setcookie('password', $password, time() + (86400 * 30), "/"); // Cookie tồn tại trong 30 ngày
         } else {
             // Nếu không chọn "Nhớ mật khẩu", xóa cookie
             setcookie('username', '', time() - 3600, "/");
+            setcookie('password', '', time() - 3600, "/");
         }
 
         header('Location: index.php'); // Chuyển hướng đến trang chính
@@ -57,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
         <div class="form-group">
             <label for="password">Mật Khẩu</label>
-            <input type="password" class="form-control" id="password" name="password" placeholder="Nhập mật khẩu" required>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Nhập mật khẩu" value="<?php echo isset($_COOKIE['password']) ? $_COOKIE['password'] : ''; ?>" required>
         </div>
         <div class="form-group form-check">
             <input type="checkbox" class="form-check-input" id="remember" name="remember" <?php echo isset($_COOKIE['username']) ? 'checked' : ''; ?>>

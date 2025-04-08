@@ -10,8 +10,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'];
 
     if ($user->register($username, $password, $email)) {
-        header('Location: login.php?message=Đăng ký thành công!');
-        exit; 
+        $success_message = "Đăng ký thành công! Bạn có thể <a href='login.php' class='alert-link'>đăng nhập tại đây</a>.";
     } else {
         $error_message = "Tên đăng nhập hoặc email đã tồn tại.";
     }
@@ -31,6 +30,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <div class="register-container">
     <h3 class="text-center mb-4">Đăng Ký Tài Khoản</h3>
+
+    <?php if (isset($success_message)): ?>
+        <div class="alert alert-success"><?php echo $success_message; ?></div>
+    <?php endif; ?>
 
     <?php if (isset($error_message)): ?>
         <div class="alert alert-danger"><?php echo $error_message; ?></div>
@@ -56,6 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <small>Đã có tài khoản? <a href="login.php" class="text-primary">Đăng Nhập</a></small>
     </div>
 </div>
+
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
