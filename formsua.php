@@ -1,11 +1,10 @@
 <?php
-require 'User.php'; // Kết nối cơ sở dữ liệu
+require 'User.php';
 
-// Kiểm tra nếu có ID người dùng được gửi qua GET
 if (isset($_GET['id'])) {
     $user_id = $_GET['id'];
 
-    // Lấy thông tin người dùng từ cơ sở dữ liệu
+
     $stmt = $pdo->prepare("SELECT * FROM users WHERE id = :id");
     $stmt->bindValue(':id', $user_id, PDO::PARAM_INT);
     $stmt->execute();
@@ -27,9 +26,8 @@ if (isset($_GET['id'])) {
     <meta charset="UTF-8">
     <title>Sửa Người Dùng</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Bootstrap + CSS riêng -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css"> <!-- File CSS bạn đã có -->
+    <link rel="stylesheet" href="style.css"> 
 </head>
 <body>
 

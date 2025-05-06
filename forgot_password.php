@@ -7,7 +7,6 @@ session_start();
     <meta charset="UTF-8">
     <title>Quên Mật Khẩu</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Bootstrap & Custom CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -27,17 +26,14 @@ session_start();
         <a href="login.php" class="text-secondary">← Quay lại đăng nhập</a>
     </div>
 
-    <!-- Hiển thị thông báo nếu có -->
     <?php
     if (isset($_SESSION['status'])) {
         echo "<div class='alert alert-info'>" . $_SESSION['status'] . "</div>";
-        unset($_SESSION['status']); // Xóa thông báo sau khi hiển thị
+        unset($_SESSION['status']); 
     }
     ?>
 
 </div>
-
-<!-- Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>

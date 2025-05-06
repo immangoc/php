@@ -10,26 +10,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $username = $_POST['username'];
     $password = $_POST['password'];
 
-    // Kiểm tra đăng nhập
     $loggedInUser = $user->login($username, $password);
     if ($loggedInUser) {
         $_SESSION['user'] = $loggedInUser;
 
-        // Nếu người dùng chọn "Nhớ mật khẩu"
+        //Cookies
         if (isset($_POST['remember'])) {
-            // Thiết lập cookie cho username
-            setcookie('username', $username, time() + (86400 * 30), "/"); // Cookie tồn tại trong 30 ngày
-            setcookie('password', $password, time() + (86400 * 30), "/"); // Cookie tồn tại trong 30 ngày
+            setcookie('username', $username, time() + (86400 * 30), "/"); 
+            setcookie('password', $password, time() + (86400 * 30), "/");
         } else {
-            // Nếu không chọn "Nhớ mật khẩu", xóa cookie
             setcookie('username', '', time() - 3600, "/");
             setcookie('password', '', time() - 3600, "/");
         }
 
-        header('Location: index.php'); // Chuyển hướng đến trang chính
+        header('Location: index.php'); 
         exit;
     } else {
-        // Thông báo lỗi khi sai tên đăng nhập hoặc mật khẩu
+
         $error_message = "Tên đăng nhập hoặc mật khẩu không đúng.";
     }
 }
@@ -73,7 +70,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         <a href="register.php" class="text-primary font-weight-bold">Đăng Ký</a>
     </div>
 </div>
-<!-- Bootstrap JS & jQuery -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>

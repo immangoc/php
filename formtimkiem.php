@@ -2,7 +2,6 @@
 session_start();
 require 'User.php';
 
-// Kiểm tra quyền admin
 if (!isset($_SESSION['user']) || $_SESSION['user']['role'] != 'admin') {
     header('Location: login.php');
     exit;
@@ -28,7 +27,6 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['role'] != 'admin') {
         <button type="submit" class="btn btn-primary mt-2">Tìm Kiếm</button>
     </form>
 
-    <!-- Hiển thị kết quả tìm kiếm -->
     <?php if (isset($_SESSION['search_results']) && !empty($_SESSION['search_results'])): ?>
         <h4>Kết quả tìm kiếm:</h4>
         <table class="table table-bordered">
@@ -53,7 +51,6 @@ if (!isset($_SESSION['user']) || $_SESSION['user']['role'] != 'admin') {
         </table>
         <?php unset($_SESSION['search_results']); ?>
     <?php elseif (isset($_SESSION['search_message'])): ?>
-        <!-- Hiển thị thông báo nếu không có kết quả -->
         <div class="alert alert-danger">
             <?php echo $_SESSION['search_message']; ?>
         </div>

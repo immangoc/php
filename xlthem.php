@@ -15,28 +15,25 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = $_POST['email'] ?? '';
     $role = $_POST['role'] ?? 'user';
 
-        // Kiểm tra xem username đã tồn tại chưa
         $stmt = $pdo->prepare("SELECT * FROM users WHERE username = :username");
         $stmt->bindValue(':username', $username);
         $stmt->execute();
         if ($stmt->rowCount() > 0) {
             echo "Username đã tồn tại, vui lòng chọn username khác!";
-            exit; // Dừng lại nếu đã có username
+            exit; 
         }
     
-        // Kiểm tra xem email đã tồn tại chưa
         $stmt = $pdo->prepare("SELECT * FROM users WHERE email = :email");
         $stmt->bindValue(':email', $email);
         $stmt->execute();
         if ($stmt->rowCount() > 0) {
             echo "Email đã tồn tại, vui lòng chọn email khác!";
-            exit; // Dừng lại nếu đã có email
+            exit; 
         }
     
-        // Mã hóa mật khẩu
+
         $hashedPassword = password_hash($password, PASSWORD_BCRYPT);
     
-        // Thêm người dùng vào cơ sở dữ liệu
         $stmt = $pdo->prepare("INSERT INTO users (username, password, email, role) VALUES (:username, :password, :email, :role)");
         $stmt->bindValue(':username', $username);
         $stmt->bindValue(':password', $hashedPassword);
@@ -44,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $stmt->bindValue(':role', $role);
     
         if ($stmt->execute()) {
-            header('Location: admin.php'); // Chuyển hướng về trang admin sau khi thêm thành công
+            header('Location: admin.php'); 
             exit;
         } else {
             echo "Lỗi khi thêm người dùng!";

@@ -4,7 +4,7 @@ require 'User.php';
 
 $user = new User($pdo);
 
-// Kiểm tra quyền admin
+
 if (!isset($_SESSION['user']) || !$user->isAdmin($_SESSION['user'])) {
     header("Location: login.php");
     exit;
@@ -17,7 +17,6 @@ if (!isset($_SESSION['user']) || !$user->isAdmin($_SESSION['user'])) {
     <meta charset="UTF-8">
     <title>Thêm Người Dùng</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- Bootstrap + Custom CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -26,8 +25,6 @@ if (!isset($_SESSION['user']) || !$user->isAdmin($_SESSION['user'])) {
 <div class="container mt-5">
     <div class="form-box mx-auto shadow-sm p-4 bg-white rounded">
         <h3 class="text-center text-primary mb-4">Thêm Người Dùng Mới</h3>
-
-        <!-- Hiển thị thông báo lỗi nếu có -->
         <?php if (isset($_GET['error'])): ?>
             <div class="alert alert-danger text-center">
                 <?php echo htmlspecialchars($_GET['error']); ?>

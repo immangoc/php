@@ -4,13 +4,11 @@ require 'User.php';
 
 $user = new User($pdo);
 
-// Kiểm tra xem người dùng đã đăng nhập chưa
 if (!isset($_SESSION['user'])) {
     header('Location: login.php');
     exit;
 }
 
-// Lấy thông tin người dùng từ session
 $currentUser = $_SESSION['user'];
 ?>
 
